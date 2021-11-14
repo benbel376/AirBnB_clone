@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-"""File Storage for AirBnB Clone"""
+"""File Storage"""
 import json
 from os.path import exists
 
 
 class FileStorage:
-    """Class for FileStorage"""
+    """for FileStorage"""
 
     __file_path = "file.json"
     __objects = dict()
 
     def all(self):
-        """return the dictionary __objects"""
+        """ dictionary __objects"""
         return self.__objects
 
     def new(self, obj):
-        """sets obj in __objects with key <obj class name>.id"""
+        """sets key <obj class name>.id"""
         self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
     def save(self):
-        """serialize __objects to JSON file"""
+        """serialize to JSON file"""
         temp = dict()
         for keys in self.__objects.keys():
             temp[keys] = self.__objects[keys].to_dict()
@@ -27,7 +27,7 @@ class FileStorage:
             json.dump(temp, jsonfile)
 
     def reload(self):
-        """deserializes the JSON file to __objects"""
+        """deserializes JSON file to __objects"""
         from ..base_model import BaseModel
         from ..user import User
         from ..state import State
