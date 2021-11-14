@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """File Storage"""
-import json
-from os.path import exists
 
+from os.path import exists
+import json
 
 class FileStorage:
     """for FileStorage"""
@@ -15,8 +15,8 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """sets key <obj class name>.id"""
-        self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
+        """sets key """
+        self.__objects[type(obj).__name__ + "." + obj.id] = obj
 
     def save(self):
         """serialize to JSON file"""
@@ -29,28 +29,28 @@ class FileStorage:
     def reload(self):
         """deserializes JSON file to __objects"""
         from ..base_model import BaseModel
-        from ..user import User
-        from ..state import State
-        from ..city import City
         from ..amenity import Amenity
         from ..place import Place
+        from ..state import State
+        from ..city import City
+        from ..user import User
         from ..review import Review
 
         if exists(self.__file_path):
             with open(self.__file_path) as jsonfile:
-                decereal = json.load(jsonfile)
-            for keys in decereal.keys():
-                if decereal[keys]['__class__'] == "BaseModel":
-                    self.__objects[keys] = BaseModel(**decereal[keys])
-                elif decereal[keys]['__class__'] == "User":
-                    self.__objects[keys] = User(**decereal[keys])
-                elif decereal[keys]['__class__'] == "State":
-                    self.__objects[keys] = State(**decereal[keys])
-                elif decereal[keys]['__class__'] == "City":
-                    self.__objects[keys] = City(**decereal[keys])
-                elif decereal[keys]['__class__'] == "Amenity":
-                    self.__objects[keys] = Amenity(**decereal[keys])
-                elif decereal[keys]['__class__'] == "Place":
-                    self.__objects[keys] = Place(**decereal[keys])
-                elif decereal[keys]['__class__'] == "Review":
-                    self.__objects[keys] = Review(**decereal[keys])
+                reloaded_dict = json.load(jsonfile)
+            for keys in reloaded_dict.keys():
+                if reloaded_dict[keys]['__class__'] == "BaseModel":
+                    self.__objects[keys] = BaseModel(**reloaded_dict[keys])
+                elif reloaded_dict[keys]['__class__'] == "User":
+                    self.__objects[keys] = User(**reloaded_dict[keys])
+                elif reloaded_dict[keys]['__class__'] == "State":
+                    self.__objects[keys] = State(**reloaded_dict[keys])
+                elif reloaded_dict[keys]['__class__'] == "City":
+                    self.__objects[keys] = City(**reloaded_dict[keys])
+                elif reloaded_dict[keys]['__class__'] == "Amenity":
+                    self.__objects[keys] = Amenity(**reloaded_dict[keys])
+                elif reloaded_dict[keys]['__class__'] == "Place":
+                    self.__objects[keys] = Place(**reloaded_dict[keys])
+                elif reloaded_dict[keys]['__class__'] == "Review":
+                    self.__objects[keys] = Review(**reloaded_dict[keys])
