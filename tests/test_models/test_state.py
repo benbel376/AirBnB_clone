@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for BaseModel"""
+"""for BaseModel"""
 import os
 import time
 import unittest
@@ -9,10 +9,10 @@ from models.state import State
 
 
 class TestState(unittest.TestCase):
-    """test BaseModel"""
+    """BaseModel"""
 
     def test_init(self):
-        """test blank basemodel init"""
+        """blank basemodel init"""
         snapshot = datetime.now()
         sm1 = State()
         snapshot2 = datetime.now()
