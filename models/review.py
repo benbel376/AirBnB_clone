@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""contains Review class"""
+"""Review class"""
 from models.base_model import BaseModel
 
 
