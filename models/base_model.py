@@ -1,15 +1,15 @@
 #!/bin/usr/python3
-"""file containing basemodel class"""
+"""file contains basemodel class"""
 from datetime import datetime
 from models import storage
 import uuid
 
 
 class BaseModel():
-    """Class BaseModel, base model for AirBnB Clone"""
+    """base model for AirBnB Clone"""
 
     def __init__(self, *args, **kwargs):
-        """initializes BaseModel"""
+        """initialization"""
         if kwargs is None or len(kwargs) == 0:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
@@ -24,17 +24,17 @@ class BaseModel():
                     setattr(self, key, value)
 
     def __str__(self):
-        """class str method"""
+        """str"""
         classname = self.__class__.__name__
         return "[{}] ({}) {}".format(classname, self.id, self.__dict__)
 
     def save(self):
-        """updates updated_at with current time"""
+        """updated_at with current time"""
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-        """creates a dictionary of BaseModel"""
+        """creates a dictionary"""
         self_dictionary = dict(self.__dict__)
         self_dictionary['__class__'] = self.__class__.__name__
         self_dictionary['created_at'] = datetime.isoformat(self.created_at)
