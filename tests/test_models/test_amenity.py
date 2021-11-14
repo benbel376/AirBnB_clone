@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for Amenity"""
+"""for Amenity"""
 import os
 import time
 import unittest
@@ -54,7 +54,7 @@ class TestAmenity(unittest.TestCase):
         del am2
 
     def test_attribute(self):
-        """asdad"""
+        """parent"""
         am3 = Amenity()
 
         self.assertTrue(hasattr(am3, "name"))
