@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A command line interpreter for AirBnB clone
+Consolof of AirBnB clone
 """
 
 import cmd
@@ -17,8 +17,7 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """
-        HBNBC - a console class for the the airbnb clone
-        program
+    class for the HBNB cmd
     """
 
     prompt = '(hbnb) '
@@ -36,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
     @staticmethod
     def parse(arg, id=" "):
         """
-        Returns a list conatning the parsed arguments from the string
+        Returns a list of arg
         """
 
         arg_list = arg.split(id)
@@ -48,16 +47,16 @@ class HBNBCommand(cmd.Cmd):
         return narg_list
 
     def do_quit(self, arg):
-        """Exits the program"""
+        """quit"""
 
         return True
 
     def help_quit(self):
-        """Prints help for the quit command"""
+        """Prints help for quit command"""
         print("Quit command to exit the program\n")
 
     def do_EOF(self, arg):
-        """Exits the program"""
+        """Exits"""
 
         print("")
         return True
@@ -67,7 +66,6 @@ class HBNBCommand(cmd.Cmd):
             Creates a new instance of BaseModel,
             saves it (to the JSON file) and prints
             the id.
-                Ex: $ create BaseModel
         """
 
         arg_lst = HBNBCommand.parse(arg)
@@ -88,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_create(self):
         """
-            prints Help info for the create function
+            prints Help info for creating function
         """
         print("""Creats a new instance of the first argument
               stores it in the JSON file and prints its id""")
@@ -97,7 +95,6 @@ class HBNBCommand(cmd.Cmd):
         """
             Prints the string representation of an instance based
             on the class name and id.
-                Ex: $ show BaseModel 1234-1234-1234
         """
         arg_lst = HBNBCommand.parse(arg)
         db = storage.all()
@@ -118,7 +115,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_show(self):
         """
-            Prints Help for for the creat function
+            Prints Help
         """
         print("""Prints the string representation of an instance based
             on the class name and id.
@@ -129,7 +126,6 @@ class HBNBCommand(cmd.Cmd):
         """
             Deletes an instance based on the class name and id
             (save the change into the JSON file).
-                Ex: $ destroy BaseModel 1234-1234-1234
         """
         arg_lst = HBNBCommand.parse(arg)
         storage.reload()
@@ -149,7 +145,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_destroy(self):
         """
-            Prints Help for the destroy function
+            Prints Help for destroy function
         """
         print("""Deletes an instance based on the class name and id
               (save the change into the JSON file).
@@ -157,9 +153,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """
-            Prints all string representation of all instances based or
+            Prints all string of instances based or
             not on the class name.
-                Ex: $ all BaseModel or $ all
         """
         arg_list = HBNBCommand.parse(arg)
         if len(arg_list) > 0 and arg_list[0] not in HBNBCommand.__class_lst:
@@ -175,7 +170,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_all(self):
         """
-            prints help for the all function
+            prints help for all function
         """
         print("""Prints all string representation of all instances based or
             not on the class name.
@@ -266,28 +261,28 @@ class HBNBCommand(cmd.Cmd):
 
     def show(self, cls):
         """
-            Gives all the elements inside the FileStorage that
+            Gives all elements inside FileStorage that
             are of instances of cls
         """
         pass
 
     def destroy(self, cls):
         """
-            Gives all the elements inside the FileStorage that
+            Gives all elements inside FileStorage that
             are of instances of cls
         """
         pass
 
     def update(self, cls):
         """
-            Gives all the elements inside the FileStorage that
+            Gives all elements inside FileStorage that
             are of instances of cls
         """
         pass
 
     def default(self, line):
         """
-            Handles the case where the the command has no equivlaent
+            Handles case where the command has no equivlaent
             do_ method
         """
 
