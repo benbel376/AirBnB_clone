@@ -20,7 +20,16 @@ class HBNBCommand(cmd.Cmd):
         the console class
     """
 
-    
+    prompt = '(hbnb) '
+    __class_names = {
+        BaseModel.__name__: BaseModel,
+        User.__name__: User,
+        State.__name__: State,
+        City.__name__: City,
+        Place.__name__: Place,
+        Amenity.__name__: Amenity,
+        Review.__name__: Review
+    }
     __methods = ["all", "count", "show", "destroy", "update"]
 
     @staticmethod
