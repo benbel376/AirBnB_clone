@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""contains Amenity class"""
+"""Amenity"""
 from models.base_model import BaseModel
 
 
