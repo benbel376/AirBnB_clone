@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for BaseModel"""
+"""for BaseModel"""
 import os
 import time
 import unittest
@@ -9,10 +9,10 @@ from models.user import User
 
 
 class TestUser(unittest.TestCase):
-    """test BaseModel"""
+    """test"""
 
     def test_ainit(self):
-        """test blank basemodel init"""
+        """blank basemodel init"""
         snapshot = datetime.now()
         um1 = User()
         snapshot2 = datetime.now()
@@ -36,7 +36,7 @@ class TestUser(unittest.TestCase):
         del um1
         
     def test_init_dict(self):
-        """test dict basemodel init"""
+        """dict basemodel init"""
         test_dict = {'updated_at': datetime(1963, 11, 22, 12, 30, 00, 716921).isoformat('T')
                      , 'id': 'z3854b62-93fa-fbbe-27de-630706f8313c', 'created_at': datetime(1963, 11, 22, 12, 30, 00, 716921).isoformat('T')}
         um2 = User(**test_dict)
@@ -54,7 +54,7 @@ class TestUser(unittest.TestCase):
         del um2
 
     def test_attribute(self):
-        """asdad"""
+        """Papa"""
         um3 = User()
 
         self.assertTrue(hasattr(um3, "email"))
