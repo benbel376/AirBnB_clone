@@ -3,7 +3,15 @@
 A command line interpreter for AirBnB clone
 """
 
-
+import cmd
+from models.city import City
+from models import storage
+from models.place import Place
+from models.amenity import Amenity
+from models.base_model import BaseModel
+from models.review import Review
+from models.user import User
+from models.state import State
 
 
 
@@ -12,16 +20,7 @@ class HBNBCommand(cmd.Cmd):
         the console class
     """
 
-    prompt = '(hbnb) '
-    __class_names = {
-        BaseModel.__name__: BaseModel,
-        User.__name__: User,
-        State.__name__: State,
-        City.__name__: City,
-        Place.__name__: Place,
-        Amenity.__name__: Amenity,
-        Review.__name__: Review
-    }
+    
     __methods = ["all", "count", "show", "destroy", "update"]
 
     @staticmethod
